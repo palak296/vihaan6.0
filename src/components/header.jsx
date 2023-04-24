@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg"
+import { getCookie } from '../cookies'
 
 const Header = () => {
   const navigate = useNavigate();
+  const [token, setToken] = useState(null)
+
+  useEffect(function () {
+    if (!token) setToken(getCookie('token'))
+  }, [token])
 
   return (
     <div className="bg-white border-gray-200 dark:bg-gray-900 p-4">
@@ -75,13 +81,25 @@ const Header = () => {
               <span className="flex items-center">
                 <button
                   className="block py-2 pl-3 pr-4 text-white "
-                  onClick={() => navigate("/auth/login")}
+                  onClick={() => token ? navigate("/profile") : navigate("/auth/login")}
                 >
                   Profile
                 </button>
                 <CgProfile color="white" size="25px" />
               </span>
             </li>
+            {token && (
+              <li>
+                <span className="flex items-center">
+                  <button
+                    className="block py-2 pl-3 pr-4 text-white "
+                    onClick={() => navigate("/auth/logout")}
+                  >
+                    Logout
+                  </button>
+                </span>
+              </li>
+            )}
           </ul>
         </div>
       </div>

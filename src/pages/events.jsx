@@ -15,21 +15,21 @@ export function MainSection() {
     <div className="py-20">
       <div className="  flex items-start justify-around rounded-xl px-4  bg-[#08324f] ml-24 mr-24">
         <div className=" w-[40%] mt-12">
-        <h2 className="text-5xl text-white  font-medium">
-          Dance Competition
+          <h2 className="text-5xl text-white  font-medium">
+            Dance Competition
           </h2>
 
           <div className="text-xl text-white mt-12">
-            <div className ="mb-6">Venue: Delhi</div>
-            <div className ="mb-6">Time: 5-7pm</div>
-            <div className ="mb-6">No. of Participants: 30</div>
-            <div className ="mb-6">Organizer: Subh Raj</div>
+            <div className="mb-6">Venue: Delhi</div>
+            <div className="mb-6">Time: 5-7pm</div>
+            <div className="mb-6">No. of Participants: 30</div>
+            <div className="mb-6">Organizer: Subh Raj</div>
             <button class="bg-black mb-12 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-6 rounded">
-  Join
-</button>
+              Join
+            </button>
 
           </div>
-        
+
         </div>
         <img src={sport} alt="" className="h-100 w-80 mt-20" />
       </div>
@@ -43,7 +43,7 @@ export function MainSection() {
             id="scrollContainer"
             className="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8"
           >
-         <EventCard img={sportscomp} text={"Cricket Competition"} />
+            <EventCard img={sportscomp} text={"Cricket Competition"} />
             <EventCard img={artexhibition} text={"Art Exhibition"} />
             <EventCard img={musicevent} text={"Concert"} />
             <EventCard img={reading} text={"Reading"} />
@@ -61,8 +61,8 @@ export function MainSection() {
 const Events = () => {
   return (
     <div>
-    <Header/>
-  <MainSection/>
+      <Header />
+      <MainSection />
 
     </div>
   )

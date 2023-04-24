@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import sport from "../assets/sport.jpg"
 import music from "../assets/music.jpg";
 import art from "../assets/art.jpg";
@@ -10,7 +10,8 @@ import musicevent from "../assets/musicevent.jpg"
 import sportscomp from "../assets/sportscomp.jpg"
 import artexhibition from "../assets/artexhibition.jpg"
 import { Link } from "react-router-dom";
-
+import serverUrl from '../backend'
+import axios from "axios";
 
 export function HeroSection() {
   return (
@@ -75,7 +76,7 @@ export function EventCard({ img, text }) {
   return (
     <div className="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 h-1/3 border rounded-lg" >
       <div className="aspect-w-16 aspect-h-9">
-        <Link  to={{ pathname: `/events/`, state: { img} }}><img
+        <Link to={{ pathname: `/events/`, state: { img } }}><img
           className="object-cover shadow-md hover:shadow-xl rounded-lg h-[30%]"
           src={img}
           alt=""
@@ -97,6 +98,33 @@ export function EventCard({ img, text }) {
 }
 
 const Body = () => {
+  const [passions, setPassions] = useState()
+  const [events, setEvents] = useState()
+
+  useEffect(function () {
+    if (!passions) {
+      axios.get(`${serverUrl}/skill`)
+        .then(function (response) {
+          setPassions(response.data)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
+  }, [passions])
+
+  useEffect(function () {
+    if (!events) {
+      axios.get(`${serverUrl}/event/`)
+        .then(function (response) {
+          setEvents(response.data)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
+  }, [events])
+
   return (
     <div>
       <HeroSection />
@@ -110,16 +138,18 @@ const Body = () => {
             id="scrollContainer"
             className="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8"
           >
+
+            {passions && passions.map(function (passion, index) {
+              return <Card key={index} img={art} text={passion.name} />
+            })}
+
             <Card img={music} text={"Music"} />
             <Card img={art} text={"Art"} />
             <Card img={sport} text={"Sport"} />
             <Card img={reading} text={"Reading"} />
             <Card img={writing} text={"Writing"} />
             <Card img={swimming} text={"Swimming"} />
-
           </div>
-
-          
         </div>
       </div>
 
@@ -132,13 +162,16 @@ const Body = () => {
             id="scrollContainer"
             className="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8"
           >
-         <EventCard img={sportscomp} text={"Cricket Competition"} />
+            {events && events.map(function (event, index) {
+              return <Card key={index} img={musicevent} text={event.name} />
+            })}
+
+            <EventCard img={sportscomp} text={"Cricket Competition"} />
             <EventCard img={artexhibition} text={"Art Exhibition"} />
             <EventCard img={musicevent} text={"Concert"} />
             <EventCard img={reading} text={"Reading"} />
             <EventCard img={writing} text={"Writing"} />
             <EventCard img={swimming} text={"Swimming"} />
-
           </div>
         </div>
       </div>

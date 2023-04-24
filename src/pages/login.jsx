@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
+import serverurl from '../backend'
 
 export default function Login() {
 
     useEffect(function () {
-        window.location = `https://lastmile.up.railway.app/auth/login/`
+        window.location = `${serverurl}/auth/login/`
     })
 
     return null

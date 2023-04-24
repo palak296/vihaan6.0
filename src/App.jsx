@@ -5,6 +5,9 @@ import Home from "./pages/home";
 import Events from "./pages/events";
 import Communities from "./pages/communities";
 import Profile from "./pages/profile";
+import Login from "./pages/login";
+import Logout from "./pages/logout";
+import Handler from "./pages/handler";
 // import pages
 // import components
 
@@ -28,6 +31,9 @@ export default function App() {
           <Route path="/profile">
             <Route index element={<Profile />} />
           </Route>
+          <Route path="/auth/login"><Route index element={<Login />} /></Route>
+          <Route path="/auth/logout"><Route index element={<Logout />} /></Route>
+          <Route path="/auth/handler"><Route index element={<Handler />} /></Route>
         </Routes>
       </div>
     </BrowserRouter>

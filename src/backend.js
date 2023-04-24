@@ -1,3 +1,3 @@
-const serverURL = 'http://localhost:8000'
+const serverURL = 'https://lastmile.up.railway.app'
 
 export default serverURL

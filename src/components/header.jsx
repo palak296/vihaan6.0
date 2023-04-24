@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import {CgProfile} from "react-icons/cg"
+import { CgProfile } from "react-icons/cg"
 
 const Header = () => {
   const navigate = useNavigate();
@@ -75,7 +75,7 @@ const Header = () => {
               <span className="flex items-center">
                 <button
                   className="block py-2 pl-3 pr-4 text-white "
-                  onClick={() => navigate("/profile")}
+                  onClick={() => navigate("/auth/login")}
                 >
                   Profile
                 </button>

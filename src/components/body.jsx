@@ -9,6 +9,7 @@ import main from "../assets/main.png"
 import musicevent from "../assets/musicevent.jpg"
 import sportscomp from "../assets/sportscomp.jpg"
 import artexhibition from "../assets/artexhibition.jpg"
+import { Link } from "react-router-dom";
 
 
 export function HeroSection() {
@@ -72,13 +73,14 @@ export function Card({ img, text }) {
 
 export function EventCard({ img, text }) {
   return (
-    <div className="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 h-1/3 border rounded-lg">
+    <div className="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 h-1/3 border rounded-lg" >
       <div className="aspect-w-16 aspect-h-9">
-        <img
+        <Link  to={{ pathname: `/events/`, state: { img} }}><img
           className="object-cover shadow-md hover:shadow-xl rounded-lg h-[30%]"
           src={img}
           alt=""
         />
+        </Link>
       </div>
       <div className="px-4 py-2">
         <div className="text-lg leading-6 font-medium space-y-1">
@@ -130,7 +132,7 @@ const Body = () => {
             id="scrollContainer"
             className="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8"
           >
-            <EventCard img={sportscomp} text={"Cricket Competition"} />
+         <EventCard img={sportscomp} text={"Cricket Competition"} />
             <EventCard img={artexhibition} text={"Art Exhibition"} />
             <EventCard img={musicevent} text={"Concert"} />
             <EventCard img={reading} text={"Reading"} />

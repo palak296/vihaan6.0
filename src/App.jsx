@@ -8,6 +8,7 @@ import Profile from "./pages/profile";
 import Login from "./pages/login";
 import Logout from "./pages/logout";
 import Handler from "./pages/handler";
+import Collaborations from "./pages/collaborations";
 // import pages
 // import components
 
@@ -24,6 +25,9 @@ export default function App() {
           </Route>
           <Route path="/communities">
             <Route index element={<Communities />} />
+          </Route>{" "}
+          <Route path="/collaborations">
+            <Route index element={<Collaborations />} />
           </Route>{" "}
           <Route path="/events">
             <Route index element={<Events />} />

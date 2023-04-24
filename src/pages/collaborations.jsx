@@ -1,8 +1,11 @@
 import React from 'react'
+import Header from '../components/header'
 
 const Collaborations = () => {
   return (
-    <div>Collaborations</div>
+    <div> 
+    <Header/>
+    </div>
   )
 }
 

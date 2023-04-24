@@ -6,7 +6,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white border-gray-200 bg-gray-900 p-4">
+    <div className="border-gray-200 bg-gray-900 p-4">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <button
           className="self-center text-2xl font-semibold whitespace-nowrap text-white"

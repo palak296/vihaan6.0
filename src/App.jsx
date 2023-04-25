@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/about";
 import Home from "./pages/home";
 import Events from "./pages/events";
+import Event from "./pages/event";
 import Communities from "./pages/communities";
 import Profile from "./pages/profile";
 import Login from "./pages/login";
@@ -17,24 +18,13 @@ export default function App() {
     <BrowserRouter>
       <div className="w-100 h-screen">
         <Routes>
-          <Route path="/">
-            <Route index element={<Home />} />
-          </Route>
-          <Route path="/about">
-            <Route index element={<About />} />
-          </Route>
-          <Route path="/communities">
-            <Route index element={<Communities />} />
-          </Route>{" "}
-          <Route path="/collaborations">
-            <Route index element={<Collaborations />} />
-          </Route>{" "}
-          <Route path="/events">
-            <Route index element={<Events />} />
-          </Route>{" "}
-          <Route path="/profile">
-            <Route index element={<Profile />} />
-          </Route>
+          <Route path="/"><Route index element={<Home />} /></Route>
+          <Route path="/about"><Route index element={<About />} /></Route>
+          <Route path="/communities"><Route index element={<Communities />} /></Route>
+          <Route path="/collaborations"><Route index element={<Collaborations />} /></Route>
+          <Route path="/event"><Route index element={<Event />} /></Route>
+          <Route path="/events"><Route index element={<Events />} /></Route>
+          <Route path="/profile"><Route index element={<Profile />} /></Route>
           <Route path="/auth/login"><Route index element={<Login />} /></Route>
           <Route path="/auth/logout"><Route index element={<Logout />} /></Route>
           <Route path="/auth/handler"><Route index element={<Handler />} /></Route>

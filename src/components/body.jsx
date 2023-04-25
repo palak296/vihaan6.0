@@ -40,7 +40,7 @@ export function Search() {
         <div className="relative w-full">
           <input type="search" id="search-dropdown" className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Explore your interests..." required />
           <button type="submit" className="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
             <span className="sr-only">Search</span>
           </button>
         </div>
@@ -51,6 +51,7 @@ export function Search() {
 export function Card({ img, text }) {
   return (
     <div className="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 h-1/3 border rounded-lg">
+      {console.log(img)}
       <div className="aspect-w-16 aspect-h-9">
         <img
           className="object-cover shadow-md hover:shadow-xl rounded-lg h-[30%]"
@@ -74,14 +75,13 @@ export function Card({ img, text }) {
 
 export function EventCard({ img, text }) {
   return (
-    <div className="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 h-1/3 border rounded-lg" >
+    <div className="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 h-1/3 border rounded-lg" onClick={() => window.location.href = '/event'}>
       <div className="aspect-w-16 aspect-h-9">
-        <Link to={{ pathname: `/events/`, state: { img } }}><img
+        <img
           className="object-cover shadow-md hover:shadow-xl rounded-lg h-[30%]"
           src={img}
           alt=""
         />
-        </Link>
       </div>
       <div className="px-4 py-2">
         <div className="text-lg leading-6 font-medium space-y-1">
@@ -140,7 +140,7 @@ const Body = () => {
           >
 
             {passions && passions.map(function (passion, index) {
-              return <Card key={index} img={art} text={passion.name} />
+              return <Card key={index} img={passion.image} text={passion.name} />
             })}
 
             <Card img={music} text={"Music"} />
@@ -163,7 +163,7 @@ const Body = () => {
             className="flex flex-no-wrap overflow-x-scroll scrolling-touch items-start mb-8"
           >
             {events && events.map(function (event, index) {
-              return <Card key={index} img={musicevent} text={event.name} />
+              return <Card key={index} img={event.image} text={event.name} />
             })}
 
             <EventCard img={sportscomp} text={"Cricket Competition"} />

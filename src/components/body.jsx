@@ -73,9 +73,9 @@ export function Card({ img, text }) {
   );
 }
 
-export function EventCard({ img, text }) {
+export function EventCard({ img, text, link = '/event' }) {
   return (
-    <div className="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 h-1/3 border rounded-lg" onClick={() => window.location.href = '/event'}>
+    <div className="flex-none w-2/3 md:w-1/3 mr-8 md:pb-4 h-1/3 border rounded-lg" onClick={() => window.location.href = link}>
       <div className="aspect-w-16 aspect-h-9">
         <img
           className="object-cover shadow-md hover:shadow-xl rounded-lg h-[30%]"

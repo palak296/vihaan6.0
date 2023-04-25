@@ -4,6 +4,7 @@ import About from "./pages/about";
 import Home from "./pages/home";
 import Events from "./pages/events";
 import Event from "./pages/event";
+import Community from "./pages/community";
 import Communities from "./pages/communities";
 import Profile from "./pages/profile";
 import Login from "./pages/login";
@@ -20,6 +21,7 @@ export default function App() {
         <Routes>
           <Route path="/"><Route index element={<Home />} /></Route>
           <Route path="/about"><Route index element={<About />} /></Route>
+          <Route path="/community"><Route index element={<Community />} /></Route>
           <Route path="/communities"><Route index element={<Communities />} /></Route>
           <Route path="/collaborations"><Route index element={<Collaborations />} /></Route>
           <Route path="/event"><Route index element={<Event />} /></Route>

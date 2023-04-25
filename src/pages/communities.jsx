@@ -27,7 +27,7 @@ export function MainSection() {
         </div>
         <div className="container my-8 flex flex-wrap justify-center">
           {events && events.map(function (event, index) {
-            return <EventCard key={index} img={event.image} text={event.name} />
+            return <EventCard key={index} img={event.image} text={event.name} link='/community' />
           })}
         </div>
       </div>

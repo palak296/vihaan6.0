@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg"
 import { getCookie } from '../cookies'
+import logo from '../assets/logo.png'
 
 const Header = () => {
   const navigate = useNavigate();
@@ -15,10 +16,10 @@ const Header = () => {
     <div className="bg-white border-gray-200 dark:bg-gray-900 p-4">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <button
-          className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
+          className="self-center whitespace-nowrap dark:text-white"
           onClick={() => navigate("/")}
         >
-          ExtraMile
+          <img src={logo} alt="" style={{ width: `120px` }} />
         </button>
 
         <button
